@@ -1,8 +1,11 @@
-const motApplication = "Test"
-let motUtilisateur = prompt("Entrez le mot : " + motApplication)
+const mots = ["Premier", "Deuxieme", "Troisieme"]
 
-if (motApplication === motUtilisateur) {
-    console.log("Le mot entré est correct.")
-} else {
-    console.log("Le mot entré est incorrect.")
+
+for (let mot of mots) {
+    let motUtilisateur = prompt("Entrez le mot : " + mot)
+    if (motUtilisateur === mot) {
+        console.log("Le mot entré est correct.")
+    } else {
+        console.log("Le mot entré est incorrect.")
+    }
 }
