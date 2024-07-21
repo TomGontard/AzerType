@@ -13,16 +13,6 @@ if (reponse === "mots") {
     liste = listePhrases
 }
 
-for (let mot of liste) {
-    let motUtilisateur = prompt("Entrez le mot : " + mot)
-    if (motUtilisateur === mot) {
-        console.log("Le mot entré est correct.")
-        score += 1
-    } else {
-        console.log("Le mot entré est incorrect.")
-    }
-    nombreQuestions += 1
-    console.log(retournerMessageScore(score, nombreQuestions))
-}
+score = lancerBoucleDeJeu(liste, nombreQuestions)
 
 afficherResultat(score, liste.length)

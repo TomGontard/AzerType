@@ -15,3 +15,19 @@ function choisirPhrasesOuMots() {
     }
     return reponse
 }
+
+function lancerBoucleDeJeu(liste, nombreQuestions) {
+    let score = 0
+    for (let mot of liste) {
+        let motUtilisateur = prompt("Entrez le mot : " + mot)
+        if (motUtilisateur === mot) {
+            console.log("Le mot entré est correct.")
+            score += 1
+        } else {
+            console.log("Le mot entré est incorrect.")
+        }
+        nombreQuestions += 1
+        console.log(retournerMessageScore(score, nombreQuestions))
+    }
+    return score
+}
