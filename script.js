@@ -3,9 +3,7 @@ let nombreQuestions = 0
 let reponse = ""
 let liste = []
 
-while (reponse !== "mots" && reponse !== "phrases") {
-    reponse = prompt("Voulez-vous jouer avec des mots ou des phrases ?")
-}
+reponse = choisirPhrasesOuMots()
 
 console.log("Vous avez choisi la liste de " + reponse)
 
@@ -24,7 +22,7 @@ for (let mot of liste) {
         console.log("Le mot entré est incorrect.")
     }
     nombreQuestions += 1
-    retournerMessageScore(score, nombreQuestions)
+    console.log(retournerMessageScore(score, nombreQuestions))
 }
 
 afficherResultat(score, liste.length)
