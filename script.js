@@ -27,4 +27,4 @@ for (let mot of liste) {
     retournerMessageScore(score, nombreQuestions)
 }
 
-console.log("Vous avez eu " + score + " points au total.")
+afficherResultat(score, liste.length)
