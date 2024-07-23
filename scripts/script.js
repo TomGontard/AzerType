@@ -40,7 +40,14 @@ function lancerJeu() {
     btnValiderMot.addEventListener("click", () => {
         console.log(inputEcriture.value)
         console.log(listeMots[compteurMots])
+        nbMotsProposes += 1
+        if (listeMots[compteurMots] === inputEcriture.value) {
+            score += 1
+        }
+        afficherResultat(score, nbMotsProposes)
+
         compteurMots += 1
+
         if (listeMots[compteurMots] === undefined) { 
             afficherProposition("Le jeu est fini")
             btnValiderMot.disabled = true
