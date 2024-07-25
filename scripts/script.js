@@ -24,6 +24,26 @@ function afficherProposition(mot) {
 }
 
 /**
+ * Cette fonction détermine quel mot afficher en fonction du bouton coché
+ */
+function affichageSaisie(compteurMots) {
+    let boutonSaisie = document.querySelectorAll(".optionSource input")
+
+    for (let i = 0; i < boutonSaisie.length; i++){
+        if (boutonSaisie[i].checked) {
+            if (i === 0 && compteurMots < 3) {
+                afficherProposition(listeMots[compteurMots])
+            } else if (i === 1 && compteurMots < 3) {
+                afficherProposition(listePhrases[compteurMots])
+            } else {
+                afficherProposition("Le jeu est terminé")
+            }
+        }
+    }
+}
+
+
+/**
  * Cette fonction lance le jeu. 
  * Elle demande à l'utilisateur de choisir entre "mots" et "phrases" et lance la boucle de jeu correspondante
  */
@@ -34,26 +54,24 @@ function lancerJeu() {
     let compteurMots = 0
     let inputEcriture = document.getElementById("inputEcriture")
     let btnValiderMot = document.getElementById("btnValiderMot")
+    let zoneProposition = document.querySelector(".zoneProposition")
+
 
     afficherProposition(listeMots[compteurMots])
 
     btnValiderMot.addEventListener("click", () => {
         console.log(inputEcriture.value)
-        console.log(listeMots[compteurMots])
+        console.log(zoneProposition.textContent)
         nbMotsProposes += 1
-        if (listeMots[compteurMots] === inputEcriture.value) {
+        if (zoneProposition.textContent === inputEcriture.value) {
             score += 1
         }
         afficherResultat(score, nbMotsProposes)
 
         compteurMots += 1
 
-        if (listeMots[compteurMots] === undefined) { 
-            afficherProposition("Le jeu est fini")
-            btnValiderMot.disabled = true
-        } else {
-            afficherProposition(listeMots[compteurMots])
-        }
+        affichageSaisie(compteurMots)
+
         inputEcriture.value = ""
     });
 
