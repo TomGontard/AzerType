@@ -63,10 +63,12 @@ function lancerJeu() {
         console.log(inputEcriture.value)
         console.log(zoneProposition.textContent)
         nbMotsProposes += 1
-        if (zoneProposition.textContent === inputEcriture.value) {
+        if (zoneProposition.textContent === inputEcriture.value && nbMotsProposes <= 3) {
             score += 1
+            afficherResultat(score, nbMotsProposes)
+        } else if (nbMotsProposes <= 3) {
+            afficherResultat(score, nbMotsProposes)
         }
-        afficherResultat(score, nbMotsProposes)
 
         compteurMots += 1
 
